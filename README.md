@@ -4,6 +4,10 @@ DTOO: Data To Object in Python
 
 dtoo is a tool for parsing data to Python Object(class).
 
+> Install
+```
+>>> pip install dtoo==0.0.2
+```
 
 > Example
 ```
