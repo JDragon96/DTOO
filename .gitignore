@@ -1,2 +1,4 @@
 dist
 dtoo.egg-info
+.idea
+.git
