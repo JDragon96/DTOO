@@ -1,8 +1,10 @@
 import inspect
 
 import dtoo.forJson as jsonParser
+from dtoo.forJson import *
 from dtoo.forModel import dataclass_wrapper
 from typing import List
+
 
 @dataclass_wrapper
 class TwitData_ReferencedTweets:
@@ -41,10 +43,16 @@ class Meta:
     next_token: str = None
 
 @dataclass_wrapper
-class HttpRespons:
+class HttpResponse:
+    data: List[TwitData] = None
+    meta: Meta = None
+
+class HttpRespons2:
     data: List[TwitData] = None
     meta: Meta = None
 
 json_data = jsonParser.loadJson(r"myJson.json", encoding="UTF-8")
-deserializeObj = jsonParser.Deserialization(json_data, HttpRespons)
+deserializeObj = jsonParser.Deserialization(json_data, HttpResponse)
 serializeObj = jsonParser.Serialization(deserializeObj)
+
+print(serializeObj)
