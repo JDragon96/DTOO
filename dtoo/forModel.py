@@ -1,17 +1,17 @@
 import attr
 
-def DataClassWrapper(cls):
+def dataclass_wrapper(cls):
 
     @attr.define(frozen=True)
     class Wrapper(cls):
+
         def __init__(self):
             super().__init__()
 
         @staticmethod
         def Create():
-            return cls()
-
-        # def __repr__(self):
-        #     return
+            obj = cls()
+            obj.__class__.__name__ = "myobject"
+            return  obj
 
     return Wrapper
