@@ -1,6 +1,18 @@
 from typing import get_type_hints
+from dtoo.forModel import *
+
 import inspect
 import json
+
+class ReturnCheck:
+    def __init__(self, type):
+        self.type = type
+
+    @staticmethod
+    def GetData(data: type):
+        return data
+
+T = TypeVar('T')
 
 def IsHaveProperty(target, properties: dict):
     # properties : Dictionary
@@ -18,7 +30,10 @@ def GetProperties(target_object):
 
     return properties
 
-def Deserialization(inputData, RootType):
+def Deserialization(inputData, RootType: T) -> T:
+
+    print(RootType)
+
     if type(RootType) is type:
         RootType = RootType.Create()
 

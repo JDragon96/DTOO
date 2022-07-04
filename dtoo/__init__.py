@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from .forJson import *
 from .forModel import  *
 
