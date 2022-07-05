@@ -44,10 +44,14 @@ def Deserialization(inputData, RootType: T) -> T:
 
             for item in inputData[key]:
                 if IsHaveProperty(key, rootProperties):
-                    newRoot = get_type_hints(RootType)[key].__args__[0].Create()
-                    Deserialization(item, newRoot)
-                    newObject.append(newRoot)
 
+                    # 0.0.6 UPDATE
+                    if get_type_hints(RootType)[key].__args__[0].__class__.__name__ == "myobject":
+                        newRoot = get_type_hints(RootType)[key].__args__[0].Create()
+                        Deserialization(item, newRoot)
+                        newObject.append(newRoot)
+                    else:
+                        newObject.append(item)
                 else:
                     # DO NOT ACCEPT UNEXPECTED PROPERTY!
                     # rootClass[key] = inputData[key]
