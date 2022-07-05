@@ -6,7 +6,7 @@ Json Serializer and Deserializer
 
 > Install
 ```
-pip install dtoo==0.0.4
+pip install dtoo==0.0.6
 ```
 
 > Example

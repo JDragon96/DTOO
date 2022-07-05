@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="dtoo",
-    version="0.0.5",
+    version="0.0.6",
     author="jdragon96",
     description="Parse every data to python object",
     packages=["dtoo"],
